@@ -1,6 +1,6 @@
 
 public class Cart {
-	public static final int MAX_NUMBERS_ORDERED = 3;
+	public static final int MAX_NUMBERS_ORDERED = 20;
 	private DigitalVideoDisc itemOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 	private int qtyOrdered = 0;
 	
@@ -32,7 +32,9 @@ public class Cart {
 				qtyOrdered--;
 				break;
 			}
-			removed = false;
+			if (i==qtyOrdered-1 && removed==false) {
+				System.out.println("Cannot not find this DVD in the cart");
+			}
 		}
 	}
 	

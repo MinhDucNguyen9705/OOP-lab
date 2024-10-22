@@ -15,10 +15,6 @@ public class Aims {
 				"Animation", 18.99f);
 		anOrder.addDigitalVideoDisc(dvd3);
 		
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Aladin",
-				"Animation", 18.99f);
-		anOrder.addDigitalVideoDisc(dvd4);
-		
 		//print total cost of the items in the cart
 		System.out.print("Total cost is: ");
 		System.out.println(anOrder.totalCost());
@@ -26,7 +22,7 @@ public class Aims {
 		//check if removeDigitalVideoDisc function works
 		anOrder.getAllTitles();
 		anOrder.removeDigitalVideoDisc(dvd3);
-		anOrder.removeDigitalVideoDisc(dvd2);
+		anOrder.removeDigitalVideoDisc(dvd3);
 		System.out.print("Total cost is: ");
 		System.out.println(anOrder.totalCost());
 		anOrder.getAllTitles();
