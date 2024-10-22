@@ -1,0 +1,2 @@
+INDEX VERSION 1.134+D:\OneDrive - Hanoi University of Science and Technology\Domain Basics\Object Oriented Programming\Lab1\homework\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
