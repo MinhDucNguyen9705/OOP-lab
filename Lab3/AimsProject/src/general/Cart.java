@@ -82,16 +82,4 @@ public class Cart {
 			System.out.println(itemOrdered[i].getTitle());
 		}
 	}
-	
-	public void print() {
-		float total = 0;
-		System.out.println("***********************CART***********************");
-		System.out.println("Ordered Items: ");
-		for (int i=0; i<qtyOrdered; i++) {
-			System.out.println(itemOrdered[i].toString());
-			total += itemOrdered[i].getCost();
-		}
-		System.out.println("Total cost: " + total);
-		System.out.println("***************************************************");
-	}
 }

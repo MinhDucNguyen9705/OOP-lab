@@ -28,7 +28,7 @@ public class Aims {
 		System.out.println(anOrder.totalCost());
 		anOrder.getAllTitles();
 		
-		anOrder.print();
+//		anOrder.print();
 	}
 }
 
