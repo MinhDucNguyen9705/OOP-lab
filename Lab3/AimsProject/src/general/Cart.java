@@ -14,7 +14,7 @@ public class Cart {
 				System.out.println("The cart is almost full");
 			}
 		}else {
-			System.out.println("The cart is already full");
+			System.out.println("The cart is full");
 		}
 	}
 	
