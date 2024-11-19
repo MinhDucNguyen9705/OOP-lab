@@ -23,7 +23,7 @@ public class Cart {
 			if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 				this.addDigitalVideoDisc(dvdList[i]);
 			}else {
-				System.out.println("The cart is already full");
+				System.out.println("The cart is full");
 				break;
 			}
 		}
