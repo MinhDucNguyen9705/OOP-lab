@@ -1,6 +1,4 @@
-package hust.soict.dsai.aims.cart;
-
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+package general;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
@@ -25,7 +23,7 @@ public class Cart {
 			if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 				this.addDigitalVideoDisc(dvdList[i]);
 			}else {
-				System.out.println("The cart is already full");
+				System.out.println("The cart is full");
 				break;
 			}
 		}
@@ -82,44 +80,6 @@ public class Cart {
 	public void getAllTitles() {
 		for (int i=0; i<qtyOrdered; i++) {
 			System.out.println(itemOrdered[i].getTitle());
-		}
-	}
-	
-	public void print() {
-		float total = 0;
-		System.out.println("***********************CART***********************");
-		System.out.println("Ordered Items: ");
-		for (int i=0; i<qtyOrdered; i++) {
-			System.out.println(itemOrdered[i].toString());
-			total += itemOrdered[i].getCost();
-		}
-		System.out.println("Total cost: " + total);
-		System.out.println("***************************************************");
-	}
-	
-	public void search(int id) {
-		boolean found = false;
-		for (int i=0; i<qtyOrdered; i++) {
-			if (itemOrdered[i].isMatch(id)) {
-				System.out.println(itemOrdered[i].toString());
-				found = true;
-			}
-		}
-		if (found == false) {
-			System.out.println("No match is found");
-		}
-	}
-	
-	public void search(String title) {
-		boolean found = false;
-		for (int i=0; i<qtyOrdered; i++) {
-			if (itemOrdered[i].isMatch(title)) {
-				System.out.println(itemOrdered[i].toString());
-				found = true;
-			}
-		}
-		if (found == false) {
-			System.out.println("No match is found");
 		}
 	}
 }
