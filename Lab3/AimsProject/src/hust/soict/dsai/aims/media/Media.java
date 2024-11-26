@@ -1,27 +1,30 @@
 package hust.soict.dsai.aims.media;
 
-public class Media {
+import java.util.Comparator;
+
+public class Media implements Comparable<Media>{
 	
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
+	private static int nbMedia = 0;
+	
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	
 	public Media(String title) {
 		this.title = title;
+		this.nbMedia++;
+		this.id = nbMedia;
 	}
 	
 	public Media(String title, String category, float cost) {
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
-	}
-	
-	public Media(int id, String title, String category, float cost) {
-		this.id = id;
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+		this.nbMedia++;
+		this.id = nbMedia;
 	}
 
 	public int getId() {
@@ -61,4 +64,28 @@ public class Media {
 				 this.getCost();
 		return str;
 	}
+	
+	public boolean equals(Media otherItem) {
+		if (this.getTitle() == otherItem.getTitle()) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int compareTo(Media other) {
+	    int titleComparison = this.getTitle().compareToIgnoreCase(other.getTitle());
+	    if (titleComparison != 0) {
+	        return titleComparison;
+	    }
+	    return Double.compare(other.getCost(), this.getCost());
+	}
+	
+//	public int compareTo(Media other) {
+//		int costComparison = Double.compare(other.getCost(), this.getCost());
+//	    if (costComparison != 0) {
+//	        return costComparison;
+//	    }
+//	    return  this.getTitle().compareToIgnoreCase(other.getTitle());
+//	}
 }
