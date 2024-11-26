@@ -12,7 +12,7 @@ public class Store {
 		itemsInStore.add(item);
 	}
 	
-	private void removeMedia(Media item) {
+	public void removeMedia(Media item) {
 		for (Media currItem: itemsInStore) {
 			if (item.equals(currItem)) {
 				itemsInStore.remove(item);

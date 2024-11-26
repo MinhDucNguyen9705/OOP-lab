@@ -9,11 +9,11 @@ public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private List<Media> itemsOrdered = new ArrayList<Media>(); 
 	
-	private void addMedia(Media item) {
+	public void addMedia(Media item) {
 		itemsOrdered.add(item);
 	}
 	
-	private void removeMedia(Media item) {
+	public void removeMedia(Media item) {
 		for (Media currItem: itemsOrdered) {
 			if (item.equals(currItem)) {
 				itemsOrdered.remove(item);
