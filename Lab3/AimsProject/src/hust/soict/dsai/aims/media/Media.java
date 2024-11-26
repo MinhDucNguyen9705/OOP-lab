@@ -39,5 +39,26 @@ public class Media {
 	public float getCost() {
 		return cost;
 	}
-
+	
+	public boolean isMatch(int id) {
+		if (this.getId() == id) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isMatch(String title) {
+		if (this.getTitle() == title) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String toString() {
+		String str = this.getId() + "." + 
+				 this.getTitle() + " - " + 
+				 this.getCategory() + " - " + 
+				 this.getCost();
+		return str;
+	}
 }

@@ -1,9 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class Playable {
+interface Playable {
 
-	public Playable() {
-		// TODO Auto-generated constructor stub
-	}
-
+	public void play();
 }
