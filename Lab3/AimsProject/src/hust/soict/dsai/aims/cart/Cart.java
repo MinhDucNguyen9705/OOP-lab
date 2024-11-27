@@ -7,19 +7,22 @@ import java.util.List;
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
-	public static final int MAX_NUMBERS_ORDERED = 20;
 	private List<Media> itemsOrdered = new ArrayList<Media>(); 
 	
 	public void addMedia(Media item) {
 		if (itemsOrdered.contains(item)==false) {
 			itemsOrdered.add(item);
+			System.out.println("Item added successfully!");
 		}
 	}
 	
 	public void removeMedia(Media item) {
 		if (itemsOrdered.contains(item)) {
 			itemsOrdered.remove(item);
-		}
+			System.out.println("Item removed successfully!");
+		}else {
+            System.out.println("Item not found in the cart.");
+        }
 	}
 	
 	public float totalCost() {
@@ -82,5 +85,13 @@ public class Cart {
 	public void sortByCostTitle() {
 		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
 //		Collections.sort(itemsOrdered);
+	}
+	
+	public int getNumberOfMedia() {
+		return itemsOrdered.size();
+	}
+	
+	public void empty() {
+		itemsOrdered = new ArrayList<Media>();
 	}
 }

@@ -51,7 +51,7 @@ public class Media implements Comparable<Media>{
 	}
 	
 	public boolean isMatch(String title) {
-		if (this.getTitle() == title) {
+		if (this.getTitle().equals(title)) {
 			return true;
 		}
 		return false;
@@ -66,11 +66,20 @@ public class Media implements Comparable<Media>{
 	}
 	
 	public boolean equals(Media otherItem) {
-		if (this.getTitle() == otherItem.getTitle()) {
+		if (this.getTitle().equals(otherItem.getTitle())) {
 			return true;
 		}
 		return false;
 	}
+
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Media other = (Media) obj;
+        return this.getTitle().equals(other.getTitle());
+    }
+
 	
 	@Override
 	public int compareTo(Media other) {

@@ -18,6 +18,10 @@ public class CompactDisc extends Disc implements Playable{
 		this.tracks = tracks;
 	}
 	
+	public CompactDisc(String title) {
+		super(title);
+	}
+	
 	public void addTrack(Track newTrack) {
 		boolean included = false;
 		for (Track track: tracks) {
