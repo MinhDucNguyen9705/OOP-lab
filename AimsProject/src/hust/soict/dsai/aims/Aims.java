@@ -79,10 +79,9 @@ public class Aims {
 				"Animation", "Roger Allers", 87, 19.95f, "D", tracks3);
 		store.addMedia(cd3);
 		
-		boolean exit = false;
 		int status = 0;
 		Cart cart = new Cart();
-		while (exit == false) {
+		while (true) {
 			Scanner sc = new Scanner(System.in);
 			int choice = 0;
 			if (status == 0) {
@@ -97,17 +96,67 @@ public class Aims {
 							choice = sc.nextInt();
 							sc.nextLine();
 							if (choice == 1) {
-								System.out.print("Enter media's title: ");
-								String title = sc.nextLine().trim();
-								System.out.println();
-								System.out.print("Enter media's category: ");
-								String category = sc.nextLine().trim();
-								System.out.println();
-								System.out.print("Enter media's cost: ");
-								float cost = sc.nextFloat();
-								sc.nextLine();
-								Media addMedia = new Media(title, category, cost);
-								store.addMedia(addMedia);
+								selectTypeMenu();
+								try {
+									choice = sc.nextInt();
+									sc.nextLine();
+									if (choice == 1) {
+										System.out.print("Enter DVD's title: ");
+										String title = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter DVD's category: ");
+										String category = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter DVD's director: ");
+										String director = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter DVD's length: ");
+										int length = sc.nextInt();
+										sc.nextLine();
+										System.out.print("Enter DVD's cost: ");
+										float cost = sc.nextFloat();
+										sc.nextLine();
+										DigitalVideoDisc dvd = new DigitalVideoDisc(title, category, director, length, cost);
+										store.addMedia(dvd);
+									}else if (choice == 2) {
+										System.out.print("Enter book's title: ");
+										String title = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter book's category: ");
+										String category = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter book's cost: ");
+										float cost = sc.nextFloat();
+										sc.nextLine();
+										Book book = new Book(title, category, cost);
+										store.addMedia(book);
+									}else if (choice == 3) {
+										System.out.print("Enter CD's title: ");
+										String title = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter CD's category: ");
+										String category = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter CD's director: ");
+										String director = sc.nextLine().trim();
+										System.out.println();
+										System.out.print("Enter CD's length: ");
+										int length = sc.nextInt();
+										sc.nextLine();
+										System.out.print("Enter CD's cost: ");
+										float cost = sc.nextFloat();
+										sc.nextLine();
+										CompactDisc cd = new CompactDisc(title, category, director, length, cost);
+										store.addMedia(cd);
+									}else if (choice == 0) {
+										status = 0;
+									}else {
+										System.out.println("Wrong input! Please choose a number: 0-1-2-3");
+									}
+								} catch (java.util.InputMismatchException e) {
+					                System.out.println("Invalid input! Please enter a valid integer.");
+					                sc.nextLine();
+					            }
 							}else if (choice == 2){
 								selectTypeMenu();
 								try{

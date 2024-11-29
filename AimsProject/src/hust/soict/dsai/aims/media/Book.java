@@ -20,6 +20,10 @@ public class Book extends Media{
 		return authors;
 	}
 	
+	public Book(String title, String category, float cost) {
+		super(title, category, cost);
+	}
+	
 	public void addAuthor(String authorName) {
 		boolean added = false;
 		for (String author: authors) {
