@@ -31,7 +31,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	}
 	
 	public boolean isMatch(String title) {
-		if (this.getTitle() == title) {
+		if (this.getTitle().equals(title)) {
 			return true;
 		}else {
 			return false;
@@ -47,8 +47,12 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	}
 	
 	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+		if (this.getLength() <= 0) {
+			System.out.println("This DVD cannot be played");
+		}else {
+			System.out.println("Playing DVD: " + this.getTitle());
+			System.out.println("DVD length: " + this.getLength());
+		}
 	}
 	
 	@Override
