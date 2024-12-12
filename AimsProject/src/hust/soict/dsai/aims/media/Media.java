@@ -65,19 +65,27 @@ public class Media implements Comparable<Media>{
 		return str;
 	}
 	
-	public boolean equals(Media otherItem) {
-		if (this.getTitle().equals(otherItem.getTitle())) {
-			return true;
+	public boolean equals(Media otherItem) throws NullPointerException{
+		if (otherItem!=null) {
+			if (this.getTitle().toLowerCase().equals(otherItem.getTitle().toLowerCase())) {
+				return true;
+			}
+		}else {
+			throw new NullPointerException("ERROR: Comparing to null");
 		}
 		return false;
 	}
 
 	@Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) throws ClassCastException{
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Media other = (Media) obj;
-        return this.getTitle().equals(other.getTitle());
+        if (obj instanceof Media) {
+        	Media other = (Media) obj;
+            return this.getTitle().toLowerCase().equals(other.getTitle().toLowerCase());
+        }else {
+        	throw new ClassCastException("ERROR: The given object is not of the type media");
+        }
     }
 
 	

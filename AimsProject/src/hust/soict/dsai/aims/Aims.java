@@ -5,11 +5,15 @@ import java.util.List;
 import java.util.Scanner;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.LimitExceededException;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Track;
+import hust.soict.dsai.aims.screen.CartScreen;
+import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -79,8 +83,13 @@ public class Aims {
 				"Animation", "Roger Allers", 87, 19.95f, "D", tracks3);
 		store.addMedia(cd3);
 		
-		int status = 0;
 		Cart cart = new Cart();
+		
+		//GUI
+		new StoreScreen(store, cart);
+				
+		//UI
+		int status = 0;
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			int choice = 0;
@@ -226,14 +235,26 @@ public class Aims {
 							choice = sc.nextInt();
 							sc.nextLine();
 							if (choice == 1) {
-								cart.addMedia(item);
+								try {
+									cart.addMedia(item);
+								} catch (LimitExceededException e) {
+									System.out.println(e.getMessage());
+								}
 							}else if (choice == 2) {
 								if ((item instanceof DigitalVideoDisc)) {
 									DigitalVideoDisc thisItem = (DigitalVideoDisc) item;
-									thisItem.play();
+									try {
+										thisItem.play();
+									} catch (PlayerException e) {
+										System.out.println(e.getMessage());
+									}
 								}else if ((item instanceof CompactDisc)) {
 									CompactDisc thisItem = (CompactDisc) item;
-									thisItem.play();
+									try {
+										thisItem.play();
+									} catch (PlayerException e) {
+										System.out.println(e.getMessage());
+									}
 								}else {
 									System.out.println("Only CD and DVD can be played");
 								}
@@ -251,7 +272,11 @@ public class Aims {
 						String title = sc.nextLine();
 						Media item = store.search(title);
 						if (item != null) {
-							cart.addMedia(item);
+							try {
+								cart.addMedia(item);
+							} catch (LimitExceededException e) {
+								System.out.println(e.getMessage());
+							}
 							System.out.println(cart.getNumberOfMedia());
 						}else {
 							System.out.println("This product is currently not available"
@@ -264,10 +289,18 @@ public class Aims {
 						if (item != null) {
 							if ((item instanceof DigitalVideoDisc)) {
 								DigitalVideoDisc thisItem = (DigitalVideoDisc) item;
-								thisItem.play();
+								try {
+									thisItem.play();
+								} catch (PlayerException e) {
+									System.out.println(e.getMessage());
+								}
 							}else if ((item instanceof CompactDisc)) {
 								CompactDisc thisItem = (CompactDisc) item;
-								thisItem.play();
+								try {
+									thisItem.play();
+								} catch (PlayerException e) {
+									System.out.println(e.getMessage());
+								}
 							}else {
 								System.out.println("Only CD and DVD can be played");
 							}
@@ -372,10 +405,18 @@ public class Aims {
 						if (item != null) {
 							if ((item instanceof DigitalVideoDisc)) {
 								DigitalVideoDisc thisItem = (DigitalVideoDisc) item;
-								thisItem.play();
+								try {
+									thisItem.play();
+								} catch (PlayerException e) {
+									System.out.println(e.getMessage());
+								}
 							}else if ((item instanceof CompactDisc)) {
 								CompactDisc thisItem = (CompactDisc) item;
-								thisItem.play();
+								try {
+									thisItem.play();
+								} catch (PlayerException e) {
+									System.out.println(e.getMessage());
+								}
 							}else {
 								System.out.println("Only CD and DVD can be played");
 							}
