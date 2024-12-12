@@ -12,6 +12,8 @@ public class Store {
 		if (itemsInStore.contains(item)==false) {
 			itemsInStore.add(item);
 			System.out.println("Item added successfully!");
+		}else {
+			System.out.println("This item is already in the store.");
 		}
 	}
 	
@@ -38,5 +40,9 @@ public class Store {
 			}
 		}
 		return null;
+	}
+
+	public ArrayList<Media> getItemsInStore() {
+		return (ArrayList<Media>) itemsInStore;
 	}
 }
